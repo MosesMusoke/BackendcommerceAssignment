@@ -24,7 +24,7 @@ Prisma for database interaction.
 ## Installation
 Clone the repository:
 
-git clone https://github.com/your-username/BackendcommerceAssignment.git
+git clone https://github.com/MosesMusoke/BackendcommerceAssignment.git
 
 Install dependencies:
 
