@@ -13,8 +13,10 @@ const signup = async (req, res) => {
     // Creating a new user
     const user = await createUser(username, email, hashedPassword);
 
+    console.log(user)
     // Generating a JWT token to allow authenticated user access
     const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET_KEY, {expiresIn:'3d'});
+    console.log(token)
 
     res.status(201).json({ message: 'User registered successfully', user, token });
   } catch (error) {

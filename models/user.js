@@ -3,6 +3,7 @@ const prisma = new PrismaClient();
 
 // User model functions that we use to interact with the datbase
 const createUser = async (username, email, password) => {
+  console.log(username, email,password)
   return await prisma.user.create({
     data: {
       username,
