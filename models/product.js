@@ -2,14 +2,16 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 // all model functions that we use to interact with the database
-const createProduct = async (name, description, price, quantity, imageUrl) => {
+const createProduct = async ( product_name, product_description, price, quantity, category_name, store_name, image_url ) => {
   return await prisma.product.create({
     data: {
-      name,
-      description,
-      price,
-      quantity,
-      imageUrl,
+      product_name, 
+      product_description, 
+      price, 
+      quantity, 
+      category_name, 
+      store_name, 
+      image_url 
     },
   });
 };
