@@ -1,20 +1,16 @@
 const { createProduct, findProductById, updateProduct, deleteProduct, listProducts } = require('../models/product');
 
 const create = async (req, res) => {
+  const { product_name, product_description, price, quantity, category_name, store_name, image_url } = req.body;
 
-    const { product_name, product_description, price, quantity, category_name, store_name, image_url } = req.body;
-  
-    // console.log(req.body)
-    try {
-      // craeting a new product
-      const product = await createProduct(product_name, product_description, price, quantity, category_name, store_name, image_url);
-  
-      console.log(product)
-      res.status(201).json({ message: 'Product created successfully', product });
-    } catch (error) {
-      res.status(500).json({ error: 'Product creation failed' });
-    }
-  };
+  try {
+    const product = await createProduct(product_name, product_description, price, quantity, category_name, store_name, image_url);
+    conole.log(product)
+    res.status(201).json({ message: 'Product created successfully', product });
+  } catch (error) {
+    res.status(500).json({ error: 'Product creation failed' });
+  }
+};
 
 const getProduct = async (req, res) => {
   const productId = parseInt(req.params.productId);
@@ -85,5 +81,6 @@ const list = async (req, res) => {
 };
 
 module.exports = { create, getProduct, update, remove, list };
+
 
 

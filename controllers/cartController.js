@@ -11,10 +11,10 @@ const getCart = async (req, res) => {
 };
 
 const addToCart = async (req, res) => {
-  const { productId, quantity } = req.body;
+  const { productId, quantity, userId } = req.body;
 
   try {
-    const cart = await CartModel.addToCart(productId, quantity);
+    const cart = await CartModel.addToCart(productId, quantity, userId);
     res.json({ success: true, cart });
   } catch (error) {
     res.status(400).json({ error: error.message });

@@ -5,6 +5,9 @@ const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const cors = require('cors')
 const { PrismaClient } = require('@prisma/client');
+const { config } = require('dotenv');
+
+config()
 
 // Initializing Prisma Client
 const prisma = new PrismaClient();
@@ -15,7 +18,7 @@ app.use(cors())
 // Routes
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/products', productRoutes);
-app.use('/api/v1/carts', cartRoutes);
+app.use('/api/v1/cart', cartRoutes);
 
 const port = process.env.PORT || 3030;
 app.listen(port, () => {
